@@ -15,7 +15,6 @@ In this programming project, I wrote three Java methods and three corresponding 
 ## Test Case Examples
 
    ```bash
-   $ make
    
    mips_subroutine volume_cube 3
    #########################################
