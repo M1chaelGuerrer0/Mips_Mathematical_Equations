@@ -2,8 +2,8 @@
 
 
 
-subroutine:     .asciiz "future_value"
-                # future_value(100000, 3, 1)
+subroutine:     .asciiz "surface_area_box"
+                # surface_area_box(3, 3, 3)
                 # Register Dump:   
 
 return_value:   .word 0
@@ -14,13 +14,13 @@ argc:           .word  3
 argv:           .word arg_0, arg_1, arg_2 
 
                 .align 2
-arg_0:          .word 100000 # 100000
+arg_0:          .word 3 # 3
 
                 .align 2
 arg_1:          .word 3 # 3
 
                 .align 2
-arg_2:          .word 1 # 1
+arg_2:          .word 3 # 3
 
                 .align 2
 saved_sp:       .word 0
@@ -35,16 +35,16 @@ saved_double:   .double 1.0
 main:           nop      
 
                 # Set the T registers to be random values
-                li $t0, 11946
-                li $t1, 15183
-                li $t2, 6657
-                li $t3, 18475
-                li $t4, 15145
-                li $t5, 360
-                li $t6, 17566
-                li $t7, 6470
-                li $t8, 31568
-                li $t9, 22678
+                li $t0, 13144
+                li $t1, 15776
+                li $t2, 764
+                li $t3, 27637
+                li $t4, 19223
+                li $t5, 16820
+                li $t6, 26134
+                li $t7, 28285
+                li $t8, 173
+                li $t9, 9012
 
                 # Set the S registers to 0xDeadBeef
                 li $s0, 0xDeadBeef
@@ -64,13 +64,13 @@ main:           nop
                 sw $sp, saved_sp
 
                  # Marshal the input arguments into the registers
-                li $a0, 100000                # 100000
+                li $a0, 3                # 3
                 li $a1, 3                # 3
-                li $a2, 1                # 1
+                li $a2, 3                # 3
 
                 # Marshal the remaining input arguments onto the stack
                 # Make a call to the user's subroutine
-                jal future_value
+                jal surface_area_box
 
 
                 # If we made it here, then all registers that 
@@ -82,7 +82,7 @@ main:           nop
                 li $ra, 0xDeadBeef
 
                 # If the SP value is what it was prior to the
-                #   "jal future_value"
+                #   "jal surface_area_box"
                 # then set it to be 0xDeadBeef
                 lw $at, saved_sp
                 bne $at, $sp, skip
