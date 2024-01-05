@@ -12,7 +12,7 @@ In this programming project, I wrote three Java methods and three corresponding 
 
   
 
-## Test Case Examples
+## Test Case Examples for the Command Line:
 
    ```bash
    
